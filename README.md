@@ -95,9 +95,9 @@ pip install -r requirements.txt
 # 5. Run the dashboard locally
 streamlit run app.py
 
-## 📁 Project Structure
 bear-dashboard/
-...
+…
+## 📁 Project Structure
 ├── app.py             # Streamlit application script
 ├── requirements.txt   # Python package list
 ├── data/              

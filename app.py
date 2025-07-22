@@ -16,28 +16,35 @@ st.set_page_config(page_title="Bear‑Risk Dashboard", layout="wide")
 # 2. Load & cache data
 @st.cache_data
 def load_all_data():
-    D = Path.home() / "Downloads" / "black_bear_project"
-    road    = pd.read_csv(D / "Road_Mortality.csv", parse_dates=["ReportDate"])
+    # point at our repo’s data/ folder
+    D = Path(__file__).parent / "data"
+
+    road    = pd.read_csv(D / "Road_Mortality.csv",    parse_dates=["ReportDate"])
     nonroad = pd.read_csv(D / "Non_Road_Mortality.csv", parse_dates=["ReportDate"])
-    capture = pd.read_csv(D / "Capture.csv", parse_dates=["ReportDate"])
-    release = pd.read_csv(D / "Release.csv", parse_dates=["ReportDate"])
-    manage  = pd.read_csv(D / "Management.csv")
+    capture = pd.read_csv(D / "Capture.csv",          parse_dates=["ReportDate"])
+    release = pd.read_csv(D / "Release.csv",          parse_dates=["ReportDate"])
+    manage  = pd.read_csv(D / "Management.csv")  # no dates here
+
+    # combine and compute derived columns
     mort = pd.concat([
         road.assign(Source="Road"),
         nonroad.assign(Source="Off-Road")
     ], ignore_index=True)
-    mort["Year"]  = mort.ReportDate.dt.year
-    mort["Month"] = mort.ReportDate.dt.month
+    mort["Year"]   = mort.ReportDate.dt.year
+    mort["Month"]  = mort.ReportDate.dt.month
     mort["Season"] = mort.Month.map({
-        12:"Winter",1:"Winter",2:"Winter",
-         3:"Spring",4:"Spring",5:"Spring",
-         6:"Summer",7:"Summer",8:"Summer",
-         9:"Fall",10:"Fall",11:"Fall"
+        12: "Winter", 1: "Winter", 2: "Winter",
+         3: "Spring", 4: "Spring", 5: "Spring",
+         6: "Summer", 7: "Summer", 8: "Summer",
+         9: "Fall",  10: "Fall",  11: "Fall"
     })
+
     capture["Year"] = capture.ReportDate.dt.year
     release["Year"] = release.ReportDate.dt.year
+
     return mort, capture, release, manage
 
+# now call it
 mort, capture, release, manage = load_all_data()
 
 # 3. Sidebar filters

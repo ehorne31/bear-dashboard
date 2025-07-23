@@ -19,7 +19,8 @@ Filter by time, season, source, region, sex, age class, and weight, then visuali
   - **Mortality Source** (Road, Off‑Road)  
   - **Region**, **Sex**, **Age Class**, **Weight Range**  
 - **Key Metrics**  
-  - Total mortalities, road vs. off‑road breakdown  
+  - Total mortalities
+  - Road vs. off‑road breakdown  
 - **All Mortalities Map**  
   - Marker clustering with popup details (date, region, cause, weight, etc.)  
 - **Regional Density**  
@@ -36,33 +37,26 @@ Filter by time, season, source, region, sex, age class, and weight, then visuali
 
 ---
 ## 📝 How To Use
-Adjust Sidebar Filters
+1. Adjust Sidebar Filters
+Select year range, seasons, mortality sources, and demographic filters.
 
-Choose the year range, seasons, mortality sources, and demographic attributes.
-
-Explore the Maps
-
-All Mortalities Map: Zoom, pan, and click clusters/markers to inspect individual events.
+2. Explore the Maps
+All Mortalities Map: Zoom, pan, and click clusters or markers to inspect individual events.
 
 Regional Density: Switch between hexagon bins or heatmap to reveal hotspots.
 
-Inspect Trends
+3. Inspect Trends
+Visualize counts over time, faceted by season and colored by source.
 
-Monthly Trends: View counts over time, faceted by season and colored by source.
+4. Survival Analysis
+If lifelines is installed, view capture→release curves under the "Survival Curves" section.
 
-Survival Analysis
+5. Cluster Summary
+Explore the most active DBSCAN clusters and their centroids.
 
-If lifelines is installed, see capture→release curves under “Capture→Release Survival Curves.”
-
-Cluster Summary
-
-Check which geographic clusters have the highest counts and view their centroids.
-
-Download Data
-
+6. Download Data
 Click Download filtered dataset as CSV to export your current selection.
-
-Expand “Capture log,” “Release log,” or “Management” tabs to view/download raw tables.
+Use the tabs to access raw logs (Capture, Release, Management).
 
 ## 🔧 Installation & Setup
 
@@ -94,9 +88,8 @@ pip install -r requirements.txt
 
 # 5. Run the dashboard locally
 streamlit run app.py
+```bash
 
-bear-dashboard/
-…
 ## 📁 Project Structure
 ├── app.py             # Streamlit application script
 ├── requirements.txt   # Python package list
@@ -110,21 +103,21 @@ bear-dashboard/
 └── README.md
 
 ## 📦 Dependencies
-Streamlit — web app framework
-
-pandas — data manipulation
-
-pydeck — hexagon & cluster maps
-
-folium — leaflet maps & heatmaps
-
-plotly.express — line charts
-
-scikit-learn — DBSCAN clustering
-
-lifelines — optional survival analysis
-
-Install via:
-
+Install everything with:
 pip install -r requirements.txt
+
+Used packages:
+Streamlit – web app framework
+
+pandas – data manipulation
+
+pydeck – geospatial hex & cluster maps
+
+folium – Leaflet maps & heatmaps
+
+plotly.express – interactive charts
+
+scikit-learn – DBSCAN clustering
+
+lifelines – optional survival analysis
      

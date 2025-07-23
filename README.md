@@ -1,72 +1,84 @@
 # 🐻 Bear‑Risk Dashboard
 
-An **interactive Streamlit** dashboard for exploring Black Bear mortality and capture/release data in Florida.  
+An **interactive Streamlit dashboard** for exploring Black Bear mortality and capture/release data in Florida.  
 Filter by time, season, source, region, sex, age class, and weight, then visualize trends, hotspots, and survival curves.
 
 ---
 
 ## 📺 Live Demo
 
-[➡️ View the live dashboard](https://bear-dashboard-m3enxgrtonf3xobvkpnknp.streamlit.app/)
+➡️ [View the live dashboard](https://bear-dashboard-m3enxgrtonf3xobvkpnknp.streamlit.app/)
 
 ---
 
 ## 🚀 Features
 
-- **Sidebar Filters**  
-  - **Start / End Year** (1979–2023)  
-  - **Season** (Winter, Spring, Summer, Fall)  
-  - **Mortality Source** (Road, Off‑Road)  
-  - **Region**, **Sex**, **Age Class**, **Weight Range**  
-- **Key Metrics**  
-  - Total mortalities
-  - Road vs. off‑road breakdown  
-- **All Mortalities Map**  
-  - Marker clustering with popup details (date, region, cause, weight, etc.)  
-- **Regional Density**  
-  - Hexagon binning (default) or heatmap view toggle  
-- **Monthly Trends**  
-  - Time‑series line charts by season & source  
-- **Capture → Release Survival Curves**  
-  - Kaplan‑Meier analysis (requires `lifelines`)  
-- **Top Clusters Summary**  
-  - DBSCAN cluster counts & centroids  
-- **Downloadable Data**  
-  - Export filtered mortalities as CSV  
-  - Raw capture, release, and management logs with download buttons  
+### Sidebar Filters
+- Start / End Year (1979–2023)  
+- Season (Winter, Spring, Summer, Fall)  
+- Mortality Source (Road, Off‑Road)  
+- Region, Sex, Age Class, Weight Range
+
+### Key Metrics
+- Total mortalities  
+- Road vs. off‑road breakdown
+
+### All Mortalities Map
+- Marker clustering with popup details (date, region, cause, weight, etc.)
+
+### Regional Density
+- Hexagon binning (default) or heatmap toggle
+
+### Monthly Trends
+- Time‑series line charts by season & source
+
+### Capture → Release Survival Curves
+- Kaplan‑Meier analysis (requires `lifelines`)
+
+### Top Clusters Summary
+- DBSCAN cluster counts & centroids
+
+### Downloadable Data
+- Export filtered mortalities as CSV  
+- Raw capture, release, and management logs with download buttons
 
 ---
-## 📝 How To Use
-1. Adjust Sidebar Filters
+
+## 📝 How to Use
+
+### Adjust Sidebar Filters  
 Select year range, seasons, mortality sources, and demographic filters.
 
-2. Explore the Maps
-All Mortalities Map: Zoom, pan, and click clusters or markers to inspect individual events.
+### Explore the Maps  
+- **All Mortalities Map**: Zoom, pan, and click clusters or markers to inspect individual events.  
+- **Regional Density**: Switch between hexagon bins or heatmap to reveal hotspots.
 
-Regional Density: Switch between hexagon bins or heatmap to reveal hotspots.
-
-3. Inspect Trends
+### Inspect Trends  
 Visualize counts over time, faceted by season and colored by source.
 
-4. Survival Analysis
-If lifelines is installed, view capture→release curves under the "Survival Curves" section.
+### Survival Analysis  
+If `lifelines` is installed, view capture→release curves under the "Survival Curves" section.
 
-5. Cluster Summary
+### Cluster Summary  
 Explore the most active DBSCAN clusters and their centroids.
 
-6. Download Data
-Click Download filtered dataset as CSV to export your current selection.
+### Download Data  
+Click **Download filtered dataset as CSV** to export your current selection.  
 Use the tabs to access raw logs (Capture, Release, Management).
 
+---
+
 ## 🔧 Installation & Setup
+
+```bash
 # 1. Clone the repo
 git clone https://github.com/ehorne31/bear-dashboard.git
 cd bear-dashboard
 
 # 2. Create & activate a virtual environment
 python3 -m venv venv
-source venv/bin/activate   # macOS/Linux
-venv\Scripts\activate      # Windows
+source venv/bin/activate        # macOS/Linux
+venv\Scripts\activate           # Windows
 
 # 3. Install dependencies
 pip install -r requirements.txt

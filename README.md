@@ -59,8 +59,6 @@ Click Download filtered dataset as CSV to export your current selection.
 Use the tabs to access raw logs (Capture, Release, Management).
 
 ## 🔧 Installation & Setup
-
-```bash
 # 1. Clone the repo
 git clone https://github.com/ehorne31/bear-dashboard.git
 cd bear-dashboard
@@ -88,7 +86,6 @@ pip install -r requirements.txt
 
 # 5. Run the dashboard locally
 streamlit run app.py
-```bash
 
 ## 📁 Project Structure
 ├── app.py             # Streamlit application script
